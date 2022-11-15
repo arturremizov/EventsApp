@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AF60F97C2923EF83004177F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F97B2923EF83004177F2 /* AppDelegate.swift */; };
 		AF60F97E2923EF83004177F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F97D2923EF83004177F2 /* SceneDelegate.swift */; };
-		AF60F9802923EF83004177F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F97F2923EF83004177F2 /* ViewController.swift */; };
 		AF60F9832923EF83004177F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF60F9812923EF83004177F2 /* Main.storyboard */; };
 		AF60F9852923EF84004177F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF60F9842923EF84004177F2 /* Assets.xcassets */; };
 		AF60F9882923EF84004177F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF60F9862923EF84004177F2 /* LaunchScreen.storyboard */; };
@@ -18,13 +17,14 @@
 		AF60F9942923F1C0004177F2 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9932923F1C0004177F2 /* EventListViewController.swift */; };
 		AF60F9972923F259004177F2 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */; };
 		AF60F9992923F476004177F2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9982923F476004177F2 /* UIColor+Extensions.swift */; };
+		AF6A20342924170600D26F4B /* EventsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF6A20322924170600D26F4B /* EventsApp.xcdatamodeld */; };
+		AF6A2036292417B700D26F4B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A2035292417B700D26F4B /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF60F9782923EF83004177F2 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF60F97B2923EF83004177F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF60F97D2923EF83004177F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF60F97F2923EF83004177F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF60F9822923EF83004177F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF60F9842923EF84004177F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF60F9872923EF84004177F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +34,8 @@
 		AF60F9932923F1C0004177F2 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		AF60F9982923F476004177F2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		AF6A20332924170600D26F4B /* EventsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventsApp.xcdatamodel; sourceTree = "<group>"; };
+		AF6A2035292417B700D26F4B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,18 +68,18 @@
 		AF60F97A2923EF83004177F2 /* EventsApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF6A202F2924169D00D26F4B /* Extensions */,
+				AF6A2031292416BE00D26F4B /* Coordinators */,
+				AF6A2030292416B400D26F4B /* Controllers */,
+				AF60F9952923F24D004177F2 /* Protocols */,
 				AF60F97B2923EF83004177F2 /* AppDelegate.swift */,
 				AF60F97D2923EF83004177F2 /* SceneDelegate.swift */,
-				AF60F97F2923EF83004177F2 /* ViewController.swift */,
 				AF60F9812923EF83004177F2 /* Main.storyboard */,
 				AF60F9842923EF84004177F2 /* Assets.xcassets */,
 				AF60F9862923EF84004177F2 /* LaunchScreen.storyboard */,
 				AF60F9892923EF84004177F2 /* Info.plist */,
-				AF60F98F2923EFB0004177F2 /* AppCoordinator.swift */,
-				AF60F9912923F159004177F2 /* EventListCoordinator.swift */,
-				AF60F9932923F1C0004177F2 /* EventListViewController.swift */,
-				AF60F9982923F476004177F2 /* UIColor+Extensions.swift */,
-				AF60F9952923F24D004177F2 /* Protocols */,
+				AF6A20322924170600D26F4B /* EventsApp.xcdatamodeld */,
+				AF6A2035292417B700D26F4B /* CoreDataManager.swift */,
 			);
 			path = EventsApp;
 			sourceTree = "<group>";
@@ -88,6 +90,31 @@
 				AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AF6A202F2924169D00D26F4B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF60F9982923F476004177F2 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AF6A2030292416B400D26F4B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF60F9932923F1C0004177F2 /* EventListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AF6A2031292416BE00D26F4B /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				AF60F98F2923EFB0004177F2 /* AppCoordinator.swift */,
+				AF60F9912923F159004177F2 /* EventListCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,11 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF60F9902923EFB0004177F2 /* AppCoordinator.swift in Sources */,
+				AF6A20342924170600D26F4B /* EventsApp.xcdatamodeld in Sources */,
 				AF60F9942923F1C0004177F2 /* EventListViewController.swift in Sources */,
-				AF60F9802923EF83004177F2 /* ViewController.swift in Sources */,
 				AF60F9992923F476004177F2 /* UIColor+Extensions.swift in Sources */,
 				AF60F97C2923EF83004177F2 /* AppDelegate.swift in Sources */,
 				AF60F9972923F259004177F2 /* StoryboardInstantiable.swift in Sources */,
+				AF6A2036292417B700D26F4B /* CoreDataManager.swift in Sources */,
 				AF60F97E2923EF83004177F2 /* SceneDelegate.swift in Sources */,
 				AF60F9922923F159004177F2 /* EventListCoordinator.swift in Sources */,
 			);
@@ -386,6 +414,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF6A20322924170600D26F4B /* EventsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF6A20332924170600D26F4B /* EventsApp.xcdatamodel */,
+			);
+			currentVersion = AF6A20332924170600D26F4B /* EventsApp.xcdatamodel */;
+			path = EventsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AF60F9702923EF83004177F2 /* Project object */;
 }
