@@ -17,7 +17,23 @@ final class EventListCoordinator: Coordinator {
     }
     
     func start() {
-        let eventListViewController = EventListViewController.instanceFromStoryboard()
+        let eventListViewController: EventListViewController = EventListViewController.instantiate()
+        let eventListViewModel = EventListViewModel()
+        eventListViewModel.coordinator = self
+        eventListViewController.viewModel = eventListViewModel
         navigationController.setViewControllers([eventListViewController], animated: false)
+    }
+    
+    func startAddEvent() {
+        let addEventCoordinator = AddEventCoordinator(navigationController: navigationController)
+        addEventCoordinator.parentCoordinator = self
+        childCoordinators.append(addEventCoordinator)
+        addEventCoordinator.start()
+    }
+    
+    func childDidFinish(childCoordinator: Coordinator) {
+        if let index = childCoordinators.firstIndex(where: { $0 === childCoordinator ? true : false }) {
+            childCoordinators.remove(at: index)
+        }
     }
 }

@@ -7,8 +7,10 @@
 
 import UIKit
 
-class EventListViewController: UIViewController, StoryboardInstantiable {
+class EventListViewController: UIViewController {
 
+    var viewModel: EventListViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -19,14 +21,14 @@ class EventListViewController: UIViewController, StoryboardInstantiable {
         let barButtonItem = UIBarButtonItem(image: plusImage,
                                             style: .plain,
                                             target: self,
-                                            action: #selector(didTapRightBarButton))
+                                            action: #selector(didTapAddEventButton))
         barButtonItem.tintColor = .primary
         navigationItem.rightBarButtonItem = barButtonItem
-        navigationItem.title = "Events"
+        navigationItem.title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    @objc private func didTapRightBarButton() {
-        
+    @objc private func didTapAddEventButton() {
+        viewModel.didTapAddEventButton()
     }
 }

@@ -15,10 +15,14 @@
 		AF60F9902923EFB0004177F2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F98F2923EFB0004177F2 /* AppCoordinator.swift */; };
 		AF60F9922923F159004177F2 /* EventListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9912923F159004177F2 /* EventListCoordinator.swift */; };
 		AF60F9942923F1C0004177F2 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9932923F1C0004177F2 /* EventListViewController.swift */; };
-		AF60F9972923F259004177F2 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */; };
 		AF60F9992923F476004177F2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F9982923F476004177F2 /* UIColor+Extensions.swift */; };
 		AF6A20342924170600D26F4B /* EventsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF6A20322924170600D26F4B /* EventsApp.xcdatamodeld */; };
 		AF6A2036292417B700D26F4B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A2035292417B700D26F4B /* CoreDataManager.swift */; };
+		AF6A203A29241BEC00D26F4B /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A203929241BEC00D26F4B /* EventListViewModel.swift */; };
+		AF6A203C29241D6B00D26F4B /* AddEventCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A203B29241D6B00D26F4B /* AddEventCoordinator.swift */; };
+		AF6A203E29241EEF00D26F4B /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A203D29241EEF00D26F4B /* AddEventViewController.swift */; };
+		AF6A204029241F5000D26F4B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A203F29241F5000D26F4B /* UIViewController+Extensions.swift */; };
+		AF6A20422924206400D26F4B /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A20412924206400D26F4B /* AddEventViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +36,14 @@
 		AF60F98F2923EFB0004177F2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AF60F9912923F159004177F2 /* EventListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListCoordinator.swift; sourceTree = "<group>"; };
 		AF60F9932923F1C0004177F2 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
-		AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		AF60F9982923F476004177F2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		AF6A20332924170600D26F4B /* EventsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventsApp.xcdatamodel; sourceTree = "<group>"; };
 		AF6A2035292417B700D26F4B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AF6A203929241BEC00D26F4B /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		AF6A203B29241D6B00D26F4B /* AddEventCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCoordinator.swift; sourceTree = "<group>"; };
+		AF6A203D29241EEF00D26F4B /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		AF6A203F29241F5000D26F4B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		AF6A20412924206400D26F4B /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +76,10 @@
 		AF60F97A2923EF83004177F2 /* EventsApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF6A20432924236800D26F4B /* ViewModels */,
 				AF6A202F2924169D00D26F4B /* Extensions */,
 				AF6A2031292416BE00D26F4B /* Coordinators */,
 				AF6A2030292416B400D26F4B /* Controllers */,
-				AF60F9952923F24D004177F2 /* Protocols */,
 				AF60F97B2923EF83004177F2 /* AppDelegate.swift */,
 				AF60F97D2923EF83004177F2 /* SceneDelegate.swift */,
 				AF60F9812923EF83004177F2 /* Main.storyboard */,
@@ -84,18 +92,11 @@
 			path = EventsApp;
 			sourceTree = "<group>";
 		};
-		AF60F9952923F24D004177F2 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				AF60F9962923F259004177F2 /* StoryboardInstantiable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		AF6A202F2924169D00D26F4B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AF60F9982923F476004177F2 /* UIColor+Extensions.swift */,
+				AF6A203F29241F5000D26F4B /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -104,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				AF60F9932923F1C0004177F2 /* EventListViewController.swift */,
+				AF6A203D29241EEF00D26F4B /* AddEventViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,8 +115,18 @@
 			children = (
 				AF60F98F2923EFB0004177F2 /* AppCoordinator.swift */,
 				AF60F9912923F159004177F2 /* EventListCoordinator.swift */,
+				AF6A203B29241D6B00D26F4B /* AddEventCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		AF6A20432924236800D26F4B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AF6A203929241BEC00D26F4B /* EventListViewModel.swift */,
+				AF6A20412924206400D26F4B /* AddEventViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,13 +201,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF60F9902923EFB0004177F2 /* AppCoordinator.swift in Sources */,
+				AF6A203E29241EEF00D26F4B /* AddEventViewController.swift in Sources */,
+				AF6A204029241F5000D26F4B /* UIViewController+Extensions.swift in Sources */,
+				AF6A20422924206400D26F4B /* AddEventViewModel.swift in Sources */,
 				AF6A20342924170600D26F4B /* EventsApp.xcdatamodeld in Sources */,
 				AF60F9942923F1C0004177F2 /* EventListViewController.swift in Sources */,
 				AF60F9992923F476004177F2 /* UIColor+Extensions.swift in Sources */,
 				AF60F97C2923EF83004177F2 /* AppDelegate.swift in Sources */,
-				AF60F9972923F259004177F2 /* StoryboardInstantiable.swift in Sources */,
 				AF6A2036292417B700D26F4B /* CoreDataManager.swift in Sources */,
+				AF6A203A29241BEC00D26F4B /* EventListViewModel.swift in Sources */,
 				AF60F97E2923EF83004177F2 /* SceneDelegate.swift in Sources */,
+				AF6A203C29241D6B00D26F4B /* AddEventCoordinator.swift in Sources */,
 				AF60F9922923F159004177F2 /* EventListCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +364,7 @@
 				INFOPLIST_FILE = EventsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -376,7 +392,7 @@
 				INFOPLIST_FILE = EventsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
