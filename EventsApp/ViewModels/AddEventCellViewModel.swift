@@ -5,7 +5,7 @@
 //  Created by Artur Remizov on 16.11.22.
 //
 
-import Foundation
+import UIKit
 
 final class AddEventCellViewModel {
     
@@ -14,13 +14,16 @@ final class AddEventCellViewModel {
         case date
         case image
     }
+    typealias Handler = () -> Void
     
     let title: String
     private(set) var subtitle: String
     let placeholder: String
+    private(set) var image: UIImage?
+    
     let type: CellType
     
-    private var onUpdate: () -> Void = {}
+    private var onUpdate: Handler? = {}
     
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -32,7 +35,7 @@ final class AddEventCellViewModel {
          subtitle: String,
          placeholder: String,
          type: AddEventCellViewModel.CellType,
-         onUpdate: @escaping () -> Void) {
+         onUpdate: Handler? ) {
         
         self.title = title
         self.subtitle = subtitle
@@ -47,7 +50,12 @@ final class AddEventCellViewModel {
     
     func update(_ date: Date) {
         self.subtitle = dateFormatter.string(from: date)
-        onUpdate()
+        onUpdate?()
+    }
+    
+    func update(_ image: UIImage) {
+        self.image = image
+        onUpdate?()
     }
 }
 

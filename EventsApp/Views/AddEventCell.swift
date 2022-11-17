@@ -38,6 +38,8 @@ final class AddEventCell: UITableViewCell {
     func update(with viewModel: AddEventCellViewModel) {
         self.viewModel = viewModel
         
+        selectionStyle = viewModel.type != .image ? .none : .default
+        
         titleLabel.text = viewModel.title
         subtitleTextField.text = viewModel.subtitle
         subtitleTextField.placeholder = viewModel.placeholder
@@ -47,13 +49,12 @@ final class AddEventCell: UITableViewCell {
         
         subtitleTextField.isHidden = viewModel.type == .image
         photoImageView.isHidden = viewModel.type != .image
+        photoImageView.image = viewModel.image
         
-        verticalStackView.spacing = viewModel.type == .image ? 15 : verticalStackView.spacing
+        verticalStackView.spacing = viewModel.type == .image ? 15 : 0
     }
     
     private func setupViews() {
-        selectionStyle = .none
-        
         verticalStackView.axis = .vertical
         titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
         subtitleTextField.font = .systemFont(ofSize: 20, weight: .medium)

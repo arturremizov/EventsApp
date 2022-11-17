@@ -32,6 +32,9 @@ final class EventListCoordinator: Coordinator {
     }
     
     func childDidFinish(childCoordinator: Coordinator) {
+        
+        print(CoreDataManager().fetchEvents().first?.name)
+        
         if let index = childCoordinators.firstIndex(where: { $0 === childCoordinator ? true : false }) {
             childCoordinators.remove(at: index)
         }

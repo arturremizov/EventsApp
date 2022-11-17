@@ -32,6 +32,7 @@ class AddEventViewController: UIViewController {
     // MARK: - Setup
     private func setupViews() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(AddEventCell.self, forCellReuseIdentifier: String(describing: AddEventCell.self))
         tableView.tableFooterView = UIView()
         
@@ -72,6 +73,16 @@ extension AddEventViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension AddEventViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.didSelectRow(at: indexPath)
+    }
+}
+
+// MARK: - UITextFieldDelegate
 extension AddEventViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
