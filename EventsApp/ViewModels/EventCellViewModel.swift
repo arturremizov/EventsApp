@@ -9,31 +9,50 @@ import UIKit
 
 struct EventCellViewModel {
     
-    var yearText: String {
-        "1 year"
+    let date = Date()
+    
+    private static let imageCache = NSCache<NSString, UIImage>()
+    private let imageQueue = DispatchQueue(label: "imageQueue", qos: .background)
+    private var cacheKey: String {
+        event.objectID.description
+    }
+
+    var timeRemainingStrings: [String] {
+        guard let eventDate = event.date else { return [] }
+        return date.timeRemaining(until: eventDate)?.components(separatedBy: ",") ?? []
     }
     
-    var monthText: String {
-        "2 months"
+    var dateText: String? {
+        guard let eventDate = event.date else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MM yyy"
+        return dateFormatter.string(from: eventDate)
     }
     
-    var weekText: String {
-        "2 weeks"
+    var eventName: String? {
+        event.name
+    }
+  
+    func loadImage(completion: @escaping (UIImage?) -> Void) {
+        if let image = Self.imageCache.object(forKey: cacheKey as NSString) {
+            completion(image)
+        } else {
+            imageQueue.async {
+                guard let imageData = event.image, let image = UIImage(data: imageData) else {
+                    completion(nil)
+                    return
+                }
+                Self.imageCache.setObject(image, forKey: cacheKey as NSString)
+                
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
+        }
     }
     
-    var dayText: String {
-        "2 days"
-    }
-    
-    var dateText: String {
-        "25 Mar 2020"
-    }
-    
-    var eventName: String {
-        "Barbados"
-    }
-    
-    var backgroundImage: UIImage {
-        UIImage(named: "newyear")!
+    private let event: EventEntity
+    init(_ event: EventEntity) {
+        self.event = event
     }
 }

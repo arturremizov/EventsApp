@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF21324129290EA20062F67B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21324029290EA20062F67B /* Date+Extensions.swift */; };
 		AF5EC9F72927C44200AA0467 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5EC9F62927C44200AA0467 /* UIView+Extensions.swift */; };
 		AF60F97C2923EF83004177F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F97B2923EF83004177F2 /* AppDelegate.swift */; };
 		AF60F97E2923EF83004177F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF60F97D2923EF83004177F2 /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF21324029290EA20062F67B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		AF5EC9F62927C44200AA0467 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		AF60F9782923EF83004177F2 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF60F97B2923EF83004177F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				AF60F9982923F476004177F2 /* UIColor+Extensions.swift */,
 				AF6A203F29241F5000D26F4B /* UIViewController+Extensions.swift */,
 				AF5EC9F62927C44200AA0467 /* UIView+Extensions.swift */,
+				AF21324029290EA20062F67B /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				AF7E986A2925211800D6E2A5 /* AddEventCellViewModel.swift in Sources */,
 				AF60F9902923EFB0004177F2 /* AppCoordinator.swift in Sources */,
+				AF21324129290EA20062F67B /* Date+Extensions.swift in Sources */,
 				AF5EC9F72927C44200AA0467 /* UIView+Extensions.swift in Sources */,
 				AF6A203E29241EEF00D26F4B /* AddEventViewController.swift in Sources */,
 				AFB172CD29266D8800D05E22 /* PhotoPickerCoordinator.swift in Sources */,
