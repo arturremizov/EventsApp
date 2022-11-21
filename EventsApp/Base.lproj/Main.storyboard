@@ -38,6 +38,41 @@
             </objects>
             <point key="canvasLocation" x="76" y="5"/>
         </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="SzI-GP-y7d">
+            <objects>
+                <viewController storyboardIdentifier="EventDetailViewController" id="Kvs-uP-c57" customClass="EventDetailViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GzS-i3-6YO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Kx-xA-ZTq">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HdV-Jj-z6n" customClass="TimeRemainingStackView" customModule="EventsApp" customModuleProvider="target">
+                                <rect key="frame" x="141.66666666666666" y="326" width="110" height="200"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Y9m-rJ-umO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Kx-xA-ZTq" firstAttribute="leading" secondItem="GzS-i3-6YO" secondAttribute="leading" id="CEk-QN-6hH"/>
+                            <constraint firstItem="5Kx-xA-ZTq" firstAttribute="top" secondItem="GzS-i3-6YO" secondAttribute="top" id="NaJ-BR-HM0"/>
+                            <constraint firstAttribute="trailing" secondItem="5Kx-xA-ZTq" secondAttribute="trailing" id="PxQ-Zb-poS"/>
+                            <constraint firstItem="HdV-Jj-z6n" firstAttribute="centerY" secondItem="GzS-i3-6YO" secondAttribute="centerY" id="lQc-AT-Af8"/>
+                            <constraint firstItem="HdV-Jj-z6n" firstAttribute="centerX" secondItem="GzS-i3-6YO" secondAttribute="centerX" id="wfC-Yk-erG"/>
+                            <constraint firstAttribute="bottom" secondItem="5Kx-xA-ZTq" secondAttribute="bottom" id="xhm-fR-coQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="5Kx-xA-ZTq" id="HEL-S2-OVS"/>
+                        <outlet property="timeRemainingStackView" destination="HdV-Jj-z6n" id="lYP-48-lOG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueL-VJ-YOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1601" y="5"/>
+        </scene>
         <!--Add Event View Controller-->
         <scene sceneID="DCR-Hn-4zq">
             <objects>

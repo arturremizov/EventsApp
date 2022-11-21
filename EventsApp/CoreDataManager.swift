@@ -27,7 +27,8 @@ final class CoreDataManager {
     func saveEvent(name: String, date: Date, image: UIImage) {
         let event = EventEntity(context: viewContext)
         event.name = name
-        event.image = image.pngData()
+        let resizedImage = image.sameAspectRatio(newHeight: 250)
+        event.image = resizedImage.pngData()
         event.date = date
         save()
     }
@@ -41,6 +42,15 @@ final class CoreDataManager {
         } catch {
             print(error)
             return []
+        }
+    }
+    
+    func getEvent(_ id: NSManagedObjectID) -> EventEntity? {
+        do {
+            return try viewContext.existingObject(with: id) as? EventEntity
+        } catch {
+            print(error)
+            return nil
         }
     }
     

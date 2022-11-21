@@ -13,7 +13,7 @@ final class AddEventViewModel {
         case titleSubtitle(AddEventCellViewModel)
     }
     
-    var coordinator: AddEventCoordinator?
+    weak var coordinator: AddEventCoordinator?
     
     let title = "Add"
     var onUpdate: (() -> Void)? = {}

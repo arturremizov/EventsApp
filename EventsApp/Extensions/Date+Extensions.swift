@@ -13,6 +13,11 @@ extension Date {
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day]
         dateComponentsFormatter.unitsStyle = .full
+        
+        var calendar = Calendar.current
+        calendar.locale = Locale(identifier: "en")
+        dateComponentsFormatter.calendar = calendar
+        
         return dateComponentsFormatter.string(from: self, to: endDate)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct EventCellViewModel {
     
@@ -32,7 +33,22 @@ struct EventCellViewModel {
     var eventName: String? {
         event.name
     }
-  
+
+    var timeRemainingViewModel: TimeRemainingViewModel? {
+        guard
+            let eventDate = event.date,
+            let timeRemainingParts = date.timeRemaining(until: eventDate)?.components(separatedBy: ",")
+        else { return nil }
+        return TimeRemainingViewModel(timeRemainingParts: timeRemainingParts, mode: .cell)
+    }
+    
+    var onSelect: (NSManagedObjectID) -> Void = { _ in }
+    
+    private let event: EventEntity
+    init(_ event: EventEntity) {
+        self.event = event
+    }
+    
     func loadImage(completion: @escaping (UIImage?) -> Void) {
         if let image = Self.imageCache.object(forKey: cacheKey as NSString) {
             completion(image)
@@ -51,8 +67,7 @@ struct EventCellViewModel {
         }
     }
     
-    private let event: EventEntity
-    init(_ event: EventEntity) {
-        self.event = event
+    func didSelect() {
+        onSelect(event.objectID)
     }
 }
