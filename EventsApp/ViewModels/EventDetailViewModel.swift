@@ -37,15 +37,20 @@ final class EventDetailViewModel {
     }
     
     func viewDidLoad() {
-        event = coreDataManager.getEvent(eventID)
-        onUpdate()
+        reload()
     }
     
     func viewDidDisappear() {
         coordinator?.didFinish()
     }
     
-    deinit {
-        print("DEINIT: ", String(describing: Self.self))
+    func reload() {
+        event = coreDataManager.getEvent(eventID)
+        onUpdate()
+    }
+    
+    @objc func didTapEditButton() {
+        guard let event = event else { return }
+        coordinator?.onEditEvent(event: event)
     }
 }

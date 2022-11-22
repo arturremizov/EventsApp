@@ -73,6 +73,36 @@
             </objects>
             <point key="canvasLocation" x="1601" y="5"/>
         </scene>
+        <!--Edit Event View Controller-->
+        <scene sceneID="1Nv-OM-4d4">
+            <objects>
+                <viewController storyboardIdentifier="EditEventViewController" id="17X-6m-Pat" customClass="EditEventViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZKF-WS-Bcg">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k8r-Ab-TB7">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FeM-1l-ni8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="k8r-Ab-TB7" secondAttribute="bottom" id="5GF-A2-vzp"/>
+                            <constraint firstItem="k8r-Ab-TB7" firstAttribute="leading" secondItem="ZKF-WS-Bcg" secondAttribute="leading" id="7gk-u8-EQ4"/>
+                            <constraint firstItem="k8r-Ab-TB7" firstAttribute="top" secondItem="ZKF-WS-Bcg" secondAttribute="top" id="FWu-9t-Znu"/>
+                            <constraint firstAttribute="trailing" secondItem="k8r-Ab-TB7" secondAttribute="trailing" id="Ox8-yT-18j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="k8r-Ab-TB7" id="KuD-kJ-Wa2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okA-Z7-LNj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2419" y="5"/>
+        </scene>
         <!--Add Event View Controller-->
         <scene sceneID="DCR-Hn-4zq">
             <objects>

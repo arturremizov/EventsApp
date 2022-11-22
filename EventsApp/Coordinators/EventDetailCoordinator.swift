@@ -9,10 +9,11 @@ import UIKit
 import CoreData
 
 final class EventDetailCoordinator: Coordinator {
-    private(set) var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
     private let eventID: NSManagedObjectID
     var parentCoordinator: EventListCoordinator?
+    var onUpdateEvent = {}
     
     init(navigationController: UINavigationController, eventID: NSManagedObjectID) {
         self.navigationController = navigationController
@@ -23,16 +24,23 @@ final class EventDetailCoordinator: Coordinator {
         let detailViewController: EventDetailViewController = .instantiate()
         let eventDetailViewModel = EventDetailViewModel(eventID: eventID)
         eventDetailViewModel.coordinator = self
+        onUpdateEvent = { [weak self] in
+            eventDetailViewModel.reload()
+            self?.parentCoordinator?.onUpdateEvent()
+        }
         detailViewController.viewModel = eventDetailViewModel
         navigationController.pushViewController(detailViewController, animated: true)
     }
     
     func didFinish() {
-        parentCoordinator?.childDidFinish(childCoordinator: self)
+        parentCoordinator?.childDidFinish(self)
     }
     
-    deinit {
-        print("DEINIT: ", String(describing: Self.self))
+    func onEditEvent(event: EventEntity) {
+        let editEventCoordinator = EditEventCoordinator(navigationController: navigationController, event: event)
+        editEventCoordinator.parentCoordinator = self
+        childCoordinators.append(editEventCoordinator)
+        editEventCoordinator.start()
     }
 }
 

@@ -33,6 +33,14 @@ final class CoreDataManager {
         save()
     }
     
+    func updateEvent(event: EventEntity, name: String, date: Date, image: UIImage) {
+        event.name = name
+        let resizedImage = image.sameAspectRatio(newHeight: 250)
+        event.image = resizedImage.pngData()
+        event.date = date
+        save()
+    }
+    
     func fetchEvents() -> [EventEntity] {
         let entityName = String(describing: EventEntity.self)
         let fetchRequest = NSFetchRequest<EventEntity>(entityName: entityName)

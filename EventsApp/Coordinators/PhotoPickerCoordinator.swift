@@ -10,11 +10,12 @@ import PhotosUI
 
 final class PhotoPickerCoordinator: Coordinator {
     
-    private(set) var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
-    var parrentCoordinator: AddEventCoordinator
+    var parrentCoordinator: Coordinator?
+    var onFinishPicking: (UIImage) -> Void = { _ in }
     
-    init(navigationController: UINavigationController, parrentCoordinator: AddEventCoordinator) {
+    init(navigationController: UINavigationController, parrentCoordinator: Coordinator?) {
         self.navigationController = navigationController
         self.parrentCoordinator = parrentCoordinator
     }
@@ -37,7 +38,7 @@ extension PhotoPickerCoordinator: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true)
         
         guard let result = results.first else {
-            self.parrentCoordinator.childDidFinish(childCoordinator: self)
+            parrentCoordinator?.childDidFinish(self)
             return
         }
         
@@ -46,11 +47,11 @@ extension PhotoPickerCoordinator: PHPickerViewControllerDelegate {
             
             DispatchQueue.main.async {
                 guard let image = reading as? UIImage, error == nil else {
-                    self.parrentCoordinator.childDidFinish(childCoordinator: self)
+                    self.parrentCoordinator?.childDidFinish(self)
                     return
                 }
-                self.parrentCoordinator.didFinishPicking(image)
-                self.parrentCoordinator.childDidFinish(childCoordinator: self)
+                self.onFinishPicking(image)
+                self.parrentCoordinator?.childDidFinish(self)
             }
         }
     }

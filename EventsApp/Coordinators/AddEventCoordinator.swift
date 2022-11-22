@@ -9,7 +9,7 @@ import UIKit
 
 final class AddEventCoordinator: Coordinator {
     
-    private(set) var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
     private var modalNavigationController: UINavigationController?
     private var photoPickerCompletion: (UIImage) -> Void = { _ in }
@@ -31,29 +31,20 @@ final class AddEventCoordinator: Coordinator {
     }
     
     func didFinish() {
-        parentCoordinator?.childDidFinish(childCoordinator: self)
+        parentCoordinator?.childDidFinish(self)
     }
     
     func didFinishSavingEvent() {
         navigationController.dismiss(animated: true)
-        parentCoordinator?.onSaveEvent()
+        parentCoordinator?.onUpdateEvent()
     }
     
     func showPhotoPicker(_ completion: @escaping (UIImage) -> Void) {
         guard let modalNavigationController else { return }
         photoPickerCompletion = completion
         let photoPickerCoordinator = PhotoPickerCoordinator(navigationController: modalNavigationController, parrentCoordinator: self)
+        photoPickerCoordinator.onFinishPicking = photoPickerCompletion
         childCoordinators.append(photoPickerCoordinator)
         photoPickerCoordinator.start()
-    }
-    
-    func didFinishPicking(_ image: UIImage) {
-        photoPickerCompletion(image)
-    }
-    
-    func childDidFinish(childCoordinator: Coordinator) {
-        if let index = childCoordinators.firstIndex(where: { $0 === childCoordinator ? true : false }) {
-            childCoordinators.remove(at: index)
-        }
     }
 }

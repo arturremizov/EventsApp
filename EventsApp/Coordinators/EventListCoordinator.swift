@@ -10,9 +10,9 @@ import CoreData
 
 final class EventListCoordinator: Coordinator {
     
-    private(set) var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
-    var onSaveEvent = {}
+    var onUpdateEvent = {}
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,7 +21,7 @@ final class EventListCoordinator: Coordinator {
     func start() {
         let eventListViewController: EventListViewController = EventListViewController.instantiate()
         let eventListViewModel = EventListViewModel()
-        onSaveEvent = eventListViewModel.reload
+        onUpdateEvent = eventListViewModel.reload
         eventListViewModel.coordinator = self
         eventListViewController.viewModel = eventListViewModel
         navigationController.setViewControllers([eventListViewController], animated: false)
@@ -40,11 +40,5 @@ final class EventListCoordinator: Coordinator {
         childCoordinators.append(eventDetailCoordinator)
         eventDetailCoordinator.start()
 
-    }
-    
-    func childDidFinish(childCoordinator: Coordinator) {
-        if let index = childCoordinators.firstIndex(where: { $0 === childCoordinator ? true : false }) {
-            childCoordinators.remove(at: index)
-        }
     }
 }
