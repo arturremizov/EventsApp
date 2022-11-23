@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EventUpdatingCoordinator: AnyObject {
+    var onUpdateEvent: () -> Void { get set }
+}
+
 final class EditEventCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator] = []
@@ -14,7 +18,7 @@ final class EditEventCoordinator: Coordinator {
     private var photoPickerCompletion: (UIImage) -> Void = { _ in }
     private let event: EventEntity
     
-    var parentCoordinator: EventDetailCoordinator?
+    var parentCoordinator: (EventUpdatingCoordinator & Coordinator)?
     
     init(navigationController: UINavigationController, event: EventEntity) {
         self.navigationController = navigationController

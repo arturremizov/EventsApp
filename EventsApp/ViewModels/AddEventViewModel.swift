@@ -23,7 +23,8 @@ final class AddEventViewModel {
     private var dateCellViewModel: AddEventCellViewModel?
     private var backgroundCellViewModel: AddEventCellViewModel?
     private let cellBuilder: EventsCellBuilder
-    private let coreDataManager: CoreDataManager
+    
+    private let eventService: EventServiceProtocol
     
     lazy var dateFormater: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -31,9 +32,9 @@ final class AddEventViewModel {
         return dateFormatter
     }()
     
-    init(cellBuilder: EventsCellBuilder, coreDataManager: CoreDataManager = CoreDataManager.shared) {
+    init(cellBuilder: EventsCellBuilder, eventService: EventServiceProtocol = EventService()) {
         self.cellBuilder = cellBuilder
-        self.coreDataManager = coreDataManager
+        self.eventService = eventService
     }
     
     func viewDidLoad() {
@@ -62,7 +63,10 @@ final class AddEventViewModel {
         else {
             return
         }
-        coreDataManager.saveEvent(name: name, date: date, image: image)
+        
+        let eventInputData = EventInputData(name: name, date: date, image: image)
+        eventService.perform(.add, data: eventInputData)
+        
         coordinator?.didFinishSavingEvent()
     }
     
